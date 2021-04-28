@@ -1,0 +1,16 @@
+version: '3'
+
+mysql:
+    image: mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --default-authentication-plugin=mysql_native_password
+    expose:
+      - '3306'
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+      MYSQL_ROOT_PASSWORD: qwerty
+    volumes:
+      - ./volumes/data:/var/lib/mysql
