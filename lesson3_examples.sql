@@ -145,7 +145,8 @@ CREATE TABLE post_likes (
   created_at DATETIME DEFAULT NOW() COMMENT "Время добавления лайка к посту",
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления лайка к посту",
   FOREIGN KEY (post_id) REFERENCES posts(id),
-  FOREIGN KEY (user_id) REFERENCES users(id)
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  UNIQUE KEY `post_user_unique_key` (`post_id`, `user_id`)
 ) COMMENT "Лайки к постам";
 
 -- Таблица лайков к медиа
@@ -155,7 +156,8 @@ CREATE TABLE media_likes (
   created_at DATETIME DEFAULT NOW() COMMENT "Время добавления лайка для медиа",
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления лайка для медиа",
   FOREIGN KEY (media_id) REFERENCES media(id),
-  FOREIGN KEY (user_id) REFERENCES users(id)
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  UNIQUE KEY `media_user_unique_key` (`media_id`, `user_id`)
 ) COMMENT "Лайки к медиа";
 
 
