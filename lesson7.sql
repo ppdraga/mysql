@@ -50,6 +50,7 @@ INSERT INTO	cities (`label`, `name`) VALUES
 SELECT * FROM cities;
 	
 SELECT 
+	flights.id,
 	c1.name AS 'from', 
 	c2.name AS 'to'
 FROM 
